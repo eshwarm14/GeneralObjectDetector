@@ -32,7 +32,7 @@ It allows users to upload an image, runs inference through a detection model, an
 ## 📂 Project Structure
 
 ```text
-object_detector
+GeneralObjectDetector
 ├── docker-compose.yml
 ├── Dockerfile
 ├── entrypoint-service
