@@ -1,0 +1,12 @@
+torch 
+torchvision
+fastapi
+uvicorn
+loguru
+opencv-python
+scikit-learn
+ultralytics
+numpy==1.26.4
+python-multipart
+onnx
+onnxruntime

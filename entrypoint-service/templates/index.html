@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Detection</title>
+  <link rel="stylesheet" href="/entrypoint-service/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>General Object Detection</h1>
+      <div class="header-upload" id="headerUpload" style="display: none;">
+        <button class="compact-upload-btn" id="compactUploadBtn">
+          <svg class="upload-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7,10 12,15 17,10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Upload New
+        </button>
+        <input type="file" id="imageInput" accept="image/*" hidden>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Upload Section -->
+      <section class="upload-section" id="uploadSection">
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-content">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7,10 12,15 17,10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <h3>Upload Image</h3>
+            <p>Drag and drop an image here, or click to select</p>
+            <input type="file" id="initialImageInput" accept="image/*" hidden>
+          </div>
+        </div>
+      </section>
+
+      <!-- Processing Section -->
+      <section class="processing-section" id="processingSection" style="display: none;">
+        <div class="processing-grid">
+          <!-- Original image -->
+          <div class="original-side">
+            <h3>Original Image</h3>
+            <img id="originalImage" alt="Uploaded image">
+            <button id="processBtn" class="process-btn">
+              <span class="btn-text">Process Image</span>
+              <div class="spinner" style="display: none;"></div>
+            </button>
+          </div>
+
+          <!-- Processed image -->
+          <div class="processed-side" id="processedSide" style="display: none;">
+            <h3>Processed Image</h3>
+            <img id="processedImage" alt="Processed image">
+          </div>
+
+          <!-- Results -->
+          <div class="results-side" id="resultsSide" style="display: none;">
+            <h3>Predictions</h3>
+            <pre id="predictionsJson"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/entrypoint-service/static/script.js"></script>
+</body>
+</html>

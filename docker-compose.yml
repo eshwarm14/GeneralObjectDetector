@@ -1,0 +1,32 @@
+services:
+  entrypoint-service:
+    container_name: EntrypointService
+    build:
+      context: .
+    image: object_detector:v1
+    command: uvicorn entrypoint-service.app:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+    depends_on:
+      - inference-service
+      - visualization-service
+
+  inference-service:
+    container_name: InferenceService 
+    image: object_detector:v1
+    command: uvicorn inference-service.infer:app --host 0.0.0.0 --port 8002
+    ports:
+      - "8002:8002"
+    volumes:
+      - .:/app
+
+  visualization-service:
+    container_name: VisualizationService
+    image: object_detector:v1
+    command:  uvicorn visualization-service.plot:app --host 0.0.0.0 --port 8003
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/app
